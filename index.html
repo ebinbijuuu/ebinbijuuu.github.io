@@ -3,140 +3,159 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ebin Biju | Software Engineer Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
     body {
       background-color: #121212;
       color: #e0e0e0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
+      font-family: 'Inter', sans-serif;
+      padding-top: 4.5rem;
       overflow-x: hidden;
+    }
+
+    nav.navbar {
+      background-color: #1f1f1f !important;
     }
 
     header {
       text-align: center;
-      margin-top: 4rem;
+      margin: 3rem auto 4rem;
+      max-width: 600px;
       opacity: 0;
-      animation: fadeInUp 1.5s ease forwards;
+      transform: translateX(-30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    header.active {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
     }
 
     header p {
       font-size: 1.2rem;
       color: #bbbbbb;
+      margin-bottom: 1.5rem;
     }
 
-    section {
-      max-width: 800px;
-      width: 100%;
-      margin: 4rem auto;
-      opacity: 0;
-      animation: fadeInUp 1.5s ease forwards;
-      animation-delay: 0.5s;
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #90caf9;
+      color: #121212;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s;
     }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #90caf9;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    li {
-      background: #1e1e1e;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s;
-    }
-
-    li:hover {
-      transform: translateY(-5px);
+    .button:hover,
+    .button:focus {
+      background-color: #64b5f6;
+      color: #121212;
     }
 
     footer {
-      margin: 4rem 0;
+      margin: 3rem 0 2rem;
       text-align: center;
       font-size: 0.9rem;
       opacity: 0;
-      animation: fadeInUp 1.5s ease forwards;
-      animation-delay: 1s;
+      transform: translateX(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    a {
-      color: #90caf9;
-      text-decoration: none;
+    footer.active {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     .socials a {
       margin: 0 1rem;
       font-size: 1.5rem;
+      color: #e0e0e0;
       transition: color 0.3s;
     }
 
-    .socials a:hover {
+    .socials a:hover,
+    .socials a:focus {
       color: #ffffff;
     }
 
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 2rem;
       }
-      to {
-        transform: translateY(0);
-        opacity: 1;
+
+      header p {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">Ebin Biju</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="intro">
     <h1>Ebin Biju</h1>
     <p>An aspiring Software Engineer looking to specialise in Cybersecurity and AI</p>
+    <a href="projects.html" class="button">View My Projects</a>
   </header>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Secure Web App</strong> – Coming soon</li>
-      <li><strong>AI-powered CV Scanner</strong> – Coming soon</li>
-      <li><strong>Containerized Vulnerability Scanner</strong> – Coming soon</li>
-      <li><strong>AI Chatbot Helpdesk</strong> – Coming soon</li>
-      <li><strong>CTF Tool/Challenge</strong> – Coming soon</li>
-    </ul>
-  </section>
-
-  <footer>
+  <footer id="contact">
     <p>Contact: <a href="mailto:ebinbijuuu@gmail.com">ebinbijuuu@gmail.com</a></p>
     <div class="socials">
-      <a href="https://github.com/ebinbijuuu" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/ebin-biju-a93854344" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/ebinbijuuu" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/ebin-biju-a93854344" target="_blank" rel="noopener"><i
+          class="fab fa-linkedin"></i></a>
     </div>
     <p>&copy; 2025 Ebin Biju</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Slide and fade-in on scroll
+    function slideFadeOnScroll() {
+      const elements = [document.getElementById('intro'), document.getElementById('contact')];
+      const triggerBottom = window.innerHeight * 0.85;
+
+      elements.forEach(el => {
+        if (!el) return;
+        const boxTop = el.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', slideFadeOnScroll);
+    window.addEventListener('load', slideFadeOnScroll);
+  </script>
 </body>
 
 </html>
