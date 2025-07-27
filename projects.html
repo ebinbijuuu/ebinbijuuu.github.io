@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Ebin Biju</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Inter', sans-serif;
+      padding-top: 4.5rem;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 2rem auto 3rem;
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    h1.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto 4rem;
+      padding: 0 1rem;
+    }
+
+    .project-card {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 1rem 1.5rem 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .project-card.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      background-color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #90caf9;
+    }
+
+    .project-summary {
+      font-size: 1rem;
+      color: #bbb;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .skills {
+      margin-bottom: 1.25rem;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      background-color: #283593;
+      color: #c5cae9;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 15px;
+      margin: 0 0.3rem 0.3rem 0;
+      user-select: none;
+    }
+
+    .btn-repo {
+      background-color: #90caf9;
+      color: #121212;
+      font-weight: 700;
+      padding: 0.45rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      border: none;
+      cursor: pointer;
+      align-self: flex-start;
+      user-select: none;
+      display: inline-block;
+    }
+
+    .btn-repo:hover,
+    .btn-repo:focus {
+      background-color: #64b5f6;
+      color: #121212;
+      text-decoration: none;
+    }
+
+    /* Coming Soon overlay */
+    .coming-soon-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(18, 18, 18, 0.85);
+      color: #f44336;
+      font-weight: 700;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Modal styles */
+    .modal-content {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      border-radius: 12px;
+      border: none;
+    }
+
+    .modal-header,
+    .modal-footer {
+      border: none;
+    }
+
+    .modal-title {
+      color: #90caf9;
+    }
+
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="projects-title">My Projects</h1>
+
+    <div class="projects-grid">
+
+      <!-- Secure Web App -->
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalSecureWebApp" tabindex="0" role="button" aria-label="Open details for Secure Web App">
+        <div class="project-img">Image coming soon</div>
+        <div class="project-title">Secure Web App</div>
+        <div class="project-summary">
+          A secure web application with login and authentication features to ensure data privacy and user security.
+        </div>
+        <div class="skills">
+          <span class="skill-badge">Java</span>
+          <span class="skill-badge">Spring Boot</span>
+          <span class="skill-badge">MySQL</span>
+          <span class="skill-badge">Bootstrap</span>
+        </div>
+        <a href="#" class="btn-repo disabled" aria-disabled="true">Coming Soon</a>
+      </div>
+
+      <!-- AI-powered CV Scanner -->
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalCVScanner" tabindex="0" role="button" aria-label="Open details for AI-powered CV Scanner">
+        <div class="project-img">Image coming soon</div>
+        <div class="project-title">AI-powered CV Scanner</div>
+        <div class="project-summary">
+          Uses NLP techniques to scan and rank resumes based on job relevance, improving recruitment efficiency.
+        </div>
+        <div class="skills">
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">NLP</span>
+          <span class="skill-badge">Flask</span>
+          <span class="skill-badge">Docker</span>
+        </div>
+        <a href="#" class="btn-repo disabled" aria-disabled="true">Coming Soon</a>
+      </div>
+
+      <!-- Containerized Vulnerability Scanner -->
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalVulnScanner" tabindex="0" role="button" aria-label="Open details for Containerized Vulnerability Scanner">
+        <div class="project-img">Image coming soon</div>
+        <div class="project-title">Containerized Vulnerability Scanner</div>
+        <div class="project-summary">
+          A Dockerized tool that scans systems for known security vulnerabilities using automated scripts.
+        </div>
+        <div class="skills">
+          <span class="skill-badge">Go</span>
+          <span class="skill-badge">Docker</span>
+          <span class="skill-badge">Kubernetes</span>
+        </div>
+        <a href="#" class="btn-repo disabled" aria-disabled="true">Coming Soon</a>
+      </div>
+
+      <!-- AI Chatbot Helpdesk -->
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalChatbot" tabindex="0" role="button" aria-label="Open details for AI Chatbot Helpdesk">
+        <div class="project-img">Image coming soon</div>
+        <div class="project-title">AI Chatbot Helpdesk</div>
+        <div class="project-summary">
+          An AI-powered chatbot that answers support questions and assists users via natural language understanding.
+        </div>
+        <div class="skills">
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">TensorFlow</span>
+          <span class="skill-badge">JavaScript</span>
+        </div>
+        <a href="#" class="btn-repo disabled" aria-disabled="true">Coming Soon</a>
+      </div>
+
+      <!-- CTF Tool/Challenge -->
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalCTF" tabindex="0" role="button" aria-label="Open details for CTF Tool or Challenge">
+        <div class="project-img">Image coming soon</div>
+        <div class="project-title">CTF Tool/Challenge</div>
+        <div class="project-summary">
+          Capture-the-flag toolkit designed for cybersecurity training and skill testing in simulated environments.
+        </div>
+        <div class="skills">
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">Bash</span>
+          <span class="skill-badge">Linux</span>
+        </div>
+        <a href="#" class="btn-repo disabled" aria-disabled="true">Coming Soon</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modals -->
+
+  <!-- Secure Web App Modal -->
+  <div class="modal fade" id="modalSecureWebApp" tabindex="-1" aria-labelledby="modalSecureWebAppLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalSecureWebAppLabel">Secure Web App</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>A secure web application built using Java and Spring Boot. Features include robust login/authentication, secure session management, and data privacy protections. Perfect for understanding full-stack secure app development.</p>
+          <p><strong>Technologies:</strong> Java, Spring Boot, MySQL, Bootstrap</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI-powered CV Scanner Modal -->
+  <div class="modal fade" id="modalCVScanner" tabindex="-1" aria-labelledby="modalCVScannerLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCVScannerLabel">AI-powered CV Scanner</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Uses NLP and machine learning to scan resumes and rank candidates based on job relevance, making recruitment efficient and unbiased. Developed with Flask backend and Docker for deployment.</p>
+          <p><strong>Technologies:</strong> Python, NLP, Flask, Docker</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Containerized Vulnerability Scanner Modal -->
+  <div class="modal fade" id="modalVulnScanner" tabindex="-1" aria-labelledby="modalVulnScannerLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalVulnScannerLabel">Containerized Vulnerability Scanner</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>A Dockerized tool written in Go that scans systems and containers for security vulnerabilities and misconfigurations. Designed for Kubernetes and cloud-native environments.</p>
+          <p><strong>Technologies:</strong> Go, Docker, Kubernetes</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Chatbot Helpdesk Modal -->
+  <div class="modal fade" id="modalChatbot" tabindex="-1" aria-labelledby="modalChatbotLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalChatbotLabel">AI Chatbot Helpdesk</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>An AI-powered chatbot using natural language processing to assist users with support queries and FAQs. Built with TensorFlow and JavaScript for a seamless interactive experience.</p>
+          <p><strong>Technologies:</strong> Python, TensorFlow, JavaScript</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTF Tool/Challenge Modal -->
+  <div class="modal fade" id="modalCTF" tabindex="-1" aria-labelledby="modalCTFLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCTFLabel">CTF Tool/Challenge</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>A capture-the-flag toolkit designed to train cybersecurity skills through practical challenges in simulated environments, including scripting and Linux tools.</p>
+          <p><strong>Technologies:</strong> Python, Bash, Linux</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Animate project cards and title on scroll
+    function animateProjects() {
+      const title = document.getElementById('projects-title');
+      const cards = document.querySelectorAll('.project-card');
+      const triggerBottom = window.innerHeight * 0.85;
+
+      if (title) {
+        const titleTop = title.getBoundingClientRect().top;
+        if (titleTop < triggerBottom) {
+          title.classList.add('active');
+        }
+      }
+
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+          card.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateProjects);
+    window.addEventListener('load', animateProjects);
+  </script>
+</body>
+
+</html>
