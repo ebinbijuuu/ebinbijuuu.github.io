@@ -13,8 +13,21 @@
       background-color: #121212;
       color: #e0e0e0;
       font-family: 'Inter', sans-serif;
-      padding-top: 4.5rem;
+      padding-top: 4.5rem; /* to offset navbar */
       overflow-x: hidden;
+    }
+
+    /* Navbar overrides */
+    .navbar-dark .navbar-nav .nav-link {
+      color: #e0e0e0;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover,
+    .navbar-dark .navbar-nav .nav-link:focus,
+    .navbar-dark .navbar-nav .active {
+      color: #90caf9;
     }
 
     h1 {
@@ -173,13 +186,36 @@
 </head>
 
 <body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1e1e1e;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" aria-label="Go to Home page">Ebin Biju</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Projects</a>
+          </li>
+          <!-- You can add more nav items here -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <div class="container">
     <h1 id="projects-title">My Projects</h1>
 
     <div class="projects-grid">
 
       <!-- Secure Web App -->
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalSecureWebApp" tabindex="0" role="button" aria-label="Open details for Secure Web App">
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalSecureWebApp" tabindex="0"
+        role="button" aria-label="Open details for Secure Web App">
         <div class="project-img">Image coming soon</div>
         <div class="project-title">Secure Web App</div>
         <div class="project-summary">
@@ -195,7 +231,8 @@
       </div>
 
       <!-- AI-powered CV Scanner -->
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalCVScanner" tabindex="0" role="button" aria-label="Open details for AI-powered CV Scanner">
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalCVScanner" tabindex="0"
+        role="button" aria-label="Open details for AI-powered CV Scanner">
         <div class="project-img">Image coming soon</div>
         <div class="project-title">AI-powered CV Scanner</div>
         <div class="project-summary">
@@ -211,7 +248,8 @@
       </div>
 
       <!-- Containerized Vulnerability Scanner -->
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalVulnScanner" tabindex="0" role="button" aria-label="Open details for Containerized Vulnerability Scanner">
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalVulnScanner" tabindex="0"
+        role="button" aria-label="Open details for Containerized Vulnerability Scanner">
         <div class="project-img">Image coming soon</div>
         <div class="project-title">Containerized Vulnerability Scanner</div>
         <div class="project-summary">
@@ -226,26 +264,29 @@
       </div>
 
       <!-- AI Chatbot Helpdesk -->
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalChatbot" tabindex="0" role="button" aria-label="Open details for AI Chatbot Helpdesk">
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalChatbot" tabindex="0"
+        role="button" aria-label="Open details for AI Chatbot Helpdesk">
         <div class="project-img">Image coming soon</div>
         <div class="project-title">AI Chatbot Helpdesk</div>
         <div class="project-summary">
-          An AI-powered chatbot that answers support questions and assists users via natural language understanding.
+          Chatbot assistant for customer service queries using machine learning and AI to improve user support.
         </div>
         <div class="skills">
           <span class="skill-badge">Python</span>
           <span class="skill-badge">TensorFlow</span>
-          <span class="skill-badge">JavaScript</span>
+          <span class="skill-badge">React</span>
+          <span class="skill-badge">Node.js</span>
         </div>
         <a href="#" class="btn-repo disabled" aria-disabled="true">Coming Soon</a>
       </div>
 
-      <!-- CTF Tool/Challenge -->
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalCTF" tabindex="0" role="button" aria-label="Open details for CTF Tool or Challenge">
+      <!-- CTF Tool / Challenge -->
+      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalCTF" tabindex="0"
+        role="button" aria-label="Open details for CTF Tool or Challenge">
         <div class="project-img">Image coming soon</div>
-        <div class="project-title">CTF Tool/Challenge</div>
+        <div class="project-title">CTF Tool / Challenge</div>
         <div class="project-summary">
-          Capture-the-flag toolkit designed for cybersecurity training and skill testing in simulated environments.
+          Cybersecurity Capture The Flag (CTF) challenge or tool designed to test and improve hacking skills.
         </div>
         <div class="skills">
           <span class="skill-badge">Python</span>
@@ -258,135 +299,24 @@
     </div>
   </div>
 
-  <!-- Modals -->
-
-  <!-- Secure Web App Modal -->
-  <div class="modal fade" id="modalSecureWebApp" tabindex="-1" aria-labelledby="modalSecureWebAppLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalSecureWebAppLabel">Secure Web App</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>A secure web application built using Java and Spring Boot. Features include robust login/authentication, secure session management, and data privacy protections. Perfect for understanding full-stack secure app development.</p>
-          <p><strong>Technologies:</strong> Java, Spring Boot, MySQL, Bootstrap</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- AI-powered CV Scanner Modal -->
-  <div class="modal fade" id="modalCVScanner" tabindex="-1" aria-labelledby="modalCVScannerLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalCVScannerLabel">AI-powered CV Scanner</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Uses NLP and machine learning to scan resumes and rank candidates based on job relevance, making recruitment efficient and unbiased. Developed with Flask backend and Docker for deployment.</p>
-          <p><strong>Technologies:</strong> Python, NLP, Flask, Docker</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Containerized Vulnerability Scanner Modal -->
-  <div class="modal fade" id="modalVulnScanner" tabindex="-1" aria-labelledby="modalVulnScannerLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalVulnScannerLabel">Containerized Vulnerability Scanner</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>A Dockerized tool written in Go that scans systems and containers for security vulnerabilities and misconfigurations. Designed for Kubernetes and cloud-native environments.</p>
-          <p><strong>Technologies:</strong> Go, Docker, Kubernetes</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- AI Chatbot Helpdesk Modal -->
-  <div class="modal fade" id="modalChatbot" tabindex="-1" aria-labelledby="modalChatbotLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalChatbotLabel">AI Chatbot Helpdesk</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>An AI-powered chatbot using natural language processing to assist users with support queries and FAQs. Built with TensorFlow and JavaScript for a seamless interactive experience.</p>
-          <p><strong>Technologies:</strong> Python, TensorFlow, JavaScript</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTF Tool/Challenge Modal -->
-  <div class="modal fade" id="modalCTF" tabindex="-1" aria-labelledby="modalCTFLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalCTFLabel">CTF Tool/Challenge</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>A capture-the-flag toolkit designed to train cybersecurity skills through practical challenges in simulated environments, including scripting and Linux tools.</p>
-          <p><strong>Technologies:</strong> Python, Bash, Linux</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="btn btn-primary disabled" aria-disabled="true" target="_blank" rel="noopener">GitHub Repo (Coming Soon)</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap JS bundle -->
+  <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // Animate project cards and title on scroll
-    function animateProjects() {
-      const title = document.getElementById('projects-title');
-      const cards = document.querySelectorAll('.project-card');
-      const triggerBottom = window.innerHeight * 0.85;
+    // Animate fade-in on scroll for project cards and title
+    const observerOptions = {
+      threshold: 0.2,
+    };
 
-      if (title) {
-        const titleTop = title.getBoundingClientRect().top;
-        if (titleTop < triggerBottom) {
-          title.classList.add('active');
-        }
-      }
-
-      cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
-        if (cardTop < triggerBottom) {
-          card.classList.add('active');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
         }
       });
-    }
+    }, observerOptions);
 
-    window.addEventListener('scroll', animateProjects);
-    window.addEventListener('load', animateProjects);
+    document.querySelectorAll('.project-card, #projects-title').forEach(el => observer.observe(el));
   </script>
 </body>
 
