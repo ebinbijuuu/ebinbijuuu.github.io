@@ -3,70 +3,42 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Ebin Biju</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       background-color: #121212;
-      color: #e0e0e0;
-      font-family: 'Inter', sans-serif;
-      padding-top: 4.5rem; /* to offset navbar */
-      overflow-x: hidden;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 70px;
     }
 
-    /* Navbar overrides */
-    .navbar-dark .navbar-nav .nav-link {
-      color: #e0e0e0;
-      font-weight: 600;
-      transition: color 0.3s;
+    .navbar {
+      background-color: #1f1f1f;
     }
 
-    .navbar-dark .navbar-nav .nav-link:hover,
-    .navbar-dark .navbar-nav .nav-link:focus,
-    .navbar-dark .navbar-nav .active {
-      color: #90caf9;
+    .navbar-brand, .nav-link {
+      color: #ffffff !important;
     }
 
-    h1 {
-      text-align: center;
-      margin: 2rem auto 3rem;
-      max-width: 600px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+    .nav-link.active {
+      font-weight: bold;
     }
 
-    h1.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 960px;
-      margin: 0 auto 4rem;
-      padding: 0 1rem;
+    .container {
+      max-width: 1000px;
     }
 
     .project-card {
       background-color: #1e1e1e;
       border-radius: 12px;
-      padding: 1rem 1.5rem 1.5rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, opacity 0.3s ease;
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(50px);
     }
 
     .project-card.active {
@@ -75,219 +47,107 @@
     }
 
     .project-img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 1rem;
+      height: 200px;
       background-color: #333;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background-size: cover;
+      background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #555;
-      font-size: 0.9rem;
-      user-select: none;
+      color: #999;
+      font-size: 1.2rem;
     }
 
     .project-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      color: #90caf9;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .project-summary {
-      font-size: 1rem;
-      color: #bbb;
+      color: #ccc;
       margin-bottom: 1rem;
-      flex-grow: 1;
     }
 
     .skills {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .skill-badge {
       display: inline-block;
-      background-color: #283593;
-      color: #c5cae9;
-      font-size: 0.8rem;
-      font-weight: 600;
+      background-color: #2e7d32;
+      color: white;
       padding: 0.25rem 0.6rem;
-      border-radius: 15px;
-      margin: 0 0.3rem 0.3rem 0;
-      user-select: none;
+      border-radius: 12px;
+      margin-right: 0.4rem;
+      font-size: 0.85rem;
     }
 
     .btn-repo {
-      background-color: #90caf9;
-      color: #121212;
-      font-weight: 700;
-      padding: 0.45rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s;
+      background-color: #333;
+      color: #fff;
       border: none;
-      cursor: pointer;
-      align-self: flex-start;
-      user-select: none;
-      display: inline-block;
-    }
-
-    .btn-repo:hover,
-    .btn-repo:focus {
-      background-color: #64b5f6;
-      color: #121212;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
       text-decoration: none;
-    }
-
-    /* Coming Soon overlay */
-    .coming-soon-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(18, 18, 18, 0.85);
-      color: #f44336;
-      font-weight: 700;
-      font-size: 1.2rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      pointer-events: none;
-      user-select: none;
+      gap: 0.5rem;
     }
 
-    /* Modal styles */
-    .modal-content {
-      background-color: #1e1e1e;
-      color: #e0e0e0;
-      border-radius: 12px;
-      border: none;
-    }
-
-    .modal-header,
-    .modal-footer {
-      border: none;
-    }
-
-    .modal-title {
-      color: #90caf9;
-    }
-
-    @media (max-width: 576px) {
-      h1 {
-        font-size: 1.8rem;
-      }
+    .btn-repo:hover {
+      background-color: #555;
     }
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1e1e1e;">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html" aria-label="Go to Home page">Ebin Biju</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation menu">
+      <a class="navbar-brand" href="index.html">Ebin Biju</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="#">Projects</a>
           </li>
-          <!-- You can add more nav items here -->
         </ul>
       </div>
     </div>
   </nav>
 
   <div class="container">
-    <h1 id="projects-title">My Projects</h1>
+    <h1 id="projects-title" class="text-center my-5">My Projects</h1>
 
-    <div class="projects-grid">
-
-      <!-- Secure Web App -->
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalSecureWebApp" tabindex="0"
-        role="button" aria-label="Open details for Secure Web App">
-        <div class="project-img">Image coming soon</div>
-        <div class="project-title">Secure Web App</div>
-        <div class="project-summary">
-          A secure web application with login and authentication features to ensure data privacy and user security.
-        </div>
-        <div class="skills">
-          <span class="skill-badge">Java</span>
-          <span class="skill-badge">Spring Boot</span>
-          <span class="skill-badge">MySQL</span>
-          <span class="skill-badge">Bootstrap</span>
-        </div>
-        <a href="#" class="btn-repo disabled" aria-disabled="true">Coming Soon</a>
+    <!-- AI Chatbot Helpdesk -->
+    <div class="project-card" style="background-image: url('c0d2531e-bf93-43de-9e3f-74b31b7a19bd.png'); background-size: cover;">
+      <div class="project-img" style="background-image: url('c0d2531e-bf93-43de-9e3f-74b31b7a19bd.png');"></div>
+      <div class="project-title">AI Chatbot Helpdesk</div>
+      <div class="project-summary">
+        Chatbot assistant for customer service queries using machine learning and AI to improve user support.
       </div>
-
-    
-      <!-- Containerized Vulnerability Scanner -->
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalVulnScanner" tabindex="0"
-        role="button" aria-label="Open details for Containerized Vulnerability Scanner">
-        <div class="project-img">Image coming soon</div>
-        <div class="project-title">Containerized Vulnerability Scanner</div>
-        <div class="project-summary">
-          A Dockerized tool that scans systems for known security vulnerabilities using automated scripts.
-        </div>
-        <div class="skills">
-          <span class="skill-badge">Go</span>
-          <span class="skill-badge">Docker</span>
-          <span class="skill-badge">Kubernetes</span>
-        </div>
-        <a href="#" class="btn-repo disabled" aria-disabled="true">Coming Soon</a>
+      <div class="skills">
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">TensorFlow</span>
+        <span class="skill-badge">React</span>
+        <span class="skill-badge">Node.js</span>
       </div>
-
-      <!-- AI Chatbot Helpdesk -->
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalChatbot" tabindex="0"
-        role="button" aria-label="Open details for AI Chatbot Helpdesk">
-        <div class="project-img">Image coming soon</div>
-        <div class="project-title">AI Chatbot Helpdesk</div>
-        <div class="project-summary">
-          Chatbot assistant for customer service queries using machine learning and AI to improve user support.
-        </div>
-        <div class="skills">
-          <span class="skill-badge">Python</span>
-          <span class="skill-badge">TensorFlow</span>
-          <span class="skill-badge">React</span>
-          <span class="skill-badge">Node.js</span>
-        </div>
-        <a href="https://github.com/ebinbijuuu/ai-chatbot" class="btn-repo disabled" aria-disabled="true">View On Github</a>
-      </div>
-
-      <!-- CTF Tool / Challenge -->
-      <div class="project-card" data-bs-toggle="modal" data-bs-target="#modalCTF" tabindex="0"
-        role="button" aria-label="Open details for CTF Tool or Challenge">
-        <div class="project-img">Image coming soon</div>
-        <div class="project-title">CTF Tool / Challenge</div>
-        <div class="project-summary">
-          Cybersecurity Capture The Flag (CTF) challenge or tool designed to test and improve hacking skills.
-        </div>
-        <div class="skills">
-          <span class="skill-badge">Python</span>
-          <span class="skill-badge">Bash</span>
-          <span class="skill-badge">Linux</span>
-        </div>
-        <a href="#" class="btn-repo disabled" aria-disabled="true">Coming Soon</a>
-      </div>
+      <a href="https://github.com/ebinbijuuu/ai-chatbot" class="btn-repo" target="_blank">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+    </div>
 
     </div>
-  </div>
 
-  <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
-    // Animate fade-in on scroll for project cards and title
     const observerOptions = {
       threshold: 0.2,
     };
