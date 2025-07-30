@@ -2,136 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Ebin Biju</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      background-color: #0d0d0d;
       color: white;
     }
-
-    h1 {
-      text-align: center;
-      font-size: 3rem;
-      margin-top: 2rem;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #111;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
-
-    .projects-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      max-width: 1000px;
-      margin: 2rem auto;
-      gap: 2rem;
-      padding: 1rem;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
     }
-
-    .project-card {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), #000);
-      border-radius: 20px;
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      background-image: url('assets/ai-chatbot.png');
-      background-size: cover;
-      background-position: center;
     }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
+    .project {
+      background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7));
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .project img {
       width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(10, 10, 10, 0.8), #000);
-      z-index: 0;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
     }
-
-    .project-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .project-title {
-      font-size: 1.8rem;
-      font-weight: bold;
+    .project h2 {
+      font-size: 1.75rem;
       margin-bottom: 0.5rem;
     }
-
-    .project-description {
+    .project p {
       font-size: 1.1rem;
+      line-height: 1.6;
       margin-bottom: 1rem;
-      color: #ddd;
     }
-
-    .tech-stack {
+    .tags {
       display: flex;
-      flex-wrap: wrap;
       gap: 0.5rem;
-      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
     }
-
-    .tech {
-      background-color: #2ecc71;
-      color: #fff;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
+    .tag {
+      background: #2d7d2d;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
       font-size: 0.9rem;
+      font-weight: 600;
     }
-
     .github-button {
-      background-color: white;
+      display: inline-block;
+      background: white;
       color: black;
       font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      padding: 0.8rem 1.5rem;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      border-radius: 0.6rem;
       text-decoration: none;
-      transition: transform 0.2s ease;
+      font-size: 1rem;
+      transition: background 0.3s;
     }
-
     .github-button:hover {
-      transform: scale(1.05);
-    }
-
-    .github-button svg {
-      height: 1.2rem;
-      width: 1.2rem;
+      background: #e0e0e0;
     }
   </style>
 </head>
 <body>
-  <h1>My Projects</h1>
-  <div class="projects-container">
-    <div class="project-card">
-      <div class="project-content">
-        <div class="project-title">AI Chatbot Helpdesk</div>
-        <div class="project-description">
-          Chatbot assistant for customer service queries using machine learning and AI to improve user support.
-        </div>
-        <div class="tech-stack">
-          <span class="tech">Python</span>
-          <span class="tech">TensorFlow</span>
-          <span class="tech">React</span>
-          <span class="tech">Node.js</span>
-        </div>
-        <a href="https://github.com/ebinbijuuu/ai-chatbot-helpdesk" class="github-button" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 .5C5.73.5.5 5.73.5 12.02c0 5.1 3.29 9.42 7.86 10.96.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.69-3.88-1.54-3.88-1.54-.53-1.33-1.3-1.68-1.3-1.68-1.06-.72.08-.71.08-.71 1.18.08 1.8 1.21 1.8 1.21 1.04 1.78 2.73 1.27 3.4.97.1-.76.41-1.27.75-1.56-2.56-.3-5.26-1.28-5.26-5.71 0-1.26.45-2.28 1.19-3.08-.12-.3-.52-1.51.11-3.14 0 0 .98-.31 3.2 1.18a11.09 11.09 0 012.91-.39c.99.01 1.99.13 2.91.39 2.22-1.5 3.2-1.18 3.2-1.18.63 1.63.24 2.84.12 3.14.74.8 1.19 1.82 1.19 3.08 0 4.44-2.71 5.41-5.29 5.7.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.28 0 .31.21.67.8.56A10.53 10.53 0 0023.5 12c0-6.29-5.23-11.5-11.5-11.5z"/>
-          </svg>
-          View on GitHub
-        </a>
+  <nav>
+    <div style="font-weight: bold; font-size: 1.2rem;">Ebin Biju</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>My Projects</h1>
+
+    <div class="project">
+      <img src="assets/ai-chatbot.png" alt="AI Chatbot Helpdesk">
+      <h2>AI Chatbot Helpdesk</h2>
+      <p>Chatbot assistant for customer service queries using machine learning and AI to improve user support.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">React</span>
+        <span class="tag">Node.js</span>
       </div>
+      <a class="github-button" href="https://github.com/ebinbijuuu/ai-chatbot-helpdesk" target="_blank">
+        🚀 View on GitHub
+      </a>
     </div>
+
+    <!-- More project cards go here -->
+
   </div>
 </body>
 </html>
