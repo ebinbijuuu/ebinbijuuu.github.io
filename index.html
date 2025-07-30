@@ -3,158 +3,191 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ebin Biju | Software Engineer Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ebin Biju | Software Engineer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: 'Inter', sans-serif;
-      padding-top: 4.5rem;
-      overflow-x: hidden;
+      background-color: #0e0e0e;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
     }
 
-    nav.navbar {
-      background-color: #1f1f1f !important;
+    .navbar {
+      background-color: #1a1a1a;
     }
 
-    header {
+    .navbar-brand, .nav-link {
+      color: #ffffff !important;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      margin: 3rem auto 4rem;
-      max-width: 600px;
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      padding: 2rem;
     }
 
-    header.active {
-      opacity: 1;
-      transform: translateX(0);
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.3rem;
-    }
-
-    header p {
+    .hero p {
       font-size: 1.2rem;
-      color: #bbbbbb;
+      color: #ccc;
       margin-bottom: 1.5rem;
     }
 
-    .button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #90caf9;
-      color: #121212;
+    .btn-custom {
+      background-color: #2e7d32;
+      color: white;
+      margin: 0.3rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 8px;
-      font-weight: 700;
+      border: none;
       text-decoration: none;
-      transition: background-color 0.3s;
+      display: inline-block;
     }
 
-    .button:hover,
-    .button:focus {
-      background-color: #64b5f6;
-      color: #121212;
-    }
-
-    footer {
-      margin: 3rem 0 2rem;
-      text-align: center;
-      font-size: 0.9rem;
+    .section {
+      padding: 4rem 1rem;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
       opacity: 0;
-      transform: translateX(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
     }
 
-    footer.active {
+    .section.active {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
 
-    .socials a {
-      margin: 0 1rem;
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #2e7d32;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      border-top: 1px solid #333;
+      color: #aaa;
+    }
+
+    .footer a {
+      color: #63a4ff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-icons i {
       font-size: 1.5rem;
-      color: #e0e0e0;
-      transition: color 0.3s;
+      margin: 0 0.5rem;
+      color: #ccc;
     }
 
-    .socials a:hover,
-    .socials a:focus {
-      color: #ffffff;
-    }
-
-    @media (max-width: 576px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      header p {
-        font-size: 1rem;
-      }
+    .footer-icons i:hover {
+      color: #fff;
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Ebin Biju</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <header id="intro">
+  <section class="hero">
     <h1>Ebin Biju</h1>
     <p>An aspiring Software Engineer looking to specialise in Cybersecurity and AI</p>
-    <a href="projects.html" class="button">View My Projects</a>
-  </header>
-
-  <footer id="contact">
-    <p>Contact: <a href="mailto:ebinbijuuu@gmail.com">ebinbijuuu@gmail.com</a></p>
-    <div class="socials">
-      <a href="https://github.com/ebinbijuuu" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/ebin-biju-a93854344" target="_blank" rel="noopener"><i
-          class="fab fa-linkedin"></i></a>
+    <div>
+      <a href="assets/Ebins%20CV%20Optimised.pdf" class="btn-custom" target="_blank">Resume</a>
+      <a href="projects.html" class="btn-custom">Projects</a>
     </div>
-    <p>&copy; 2025 Ebin Biju</p>
+  </section>
+
+  <section class="section" id="summary">
+    <div class="container">
+      <h2 class="section-title">Profile Summary</h2>
+      <p>Ambitious and analytical Computer Science student with a solid grasp of software development principles. Proficient in Python, Java, HTML/CSS/JS, and currently expanding full-stack skills. Passionate about clean, maintainable code and contributing to real-world projects.</p>
+    </div>
+  </section>
+
+  <section class="section" id="tech-stack">
+    <div class="container">
+      <h2 class="section-title">Technology Stack</h2>
+      <ul>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript, Vue.js, Flask</li>
+        <li><strong>Backend:</strong> Python (NLP/spaCy), Java, C/C++, SQL, REST APIs</li>
+        <li><strong>Tools:</strong> VSCode, Git, Docker, MySQL, Cursor, Postman</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <ul>
+        <li><strong>Keele University</strong> – BSc Computer Science<br><em>2023–Present | Expected First Class (74%)</em></li>
+        <li><strong>Alcester Grammar School</strong> – A Levels<br><em>Business (A), Biology (B), Chemistry (C)</em></li>
+        <li><em>2x 9s, 3x 8s, 4x 7s at GCSE</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>Contact: <a href="mailto:ebinbijuuu@gmail.com">ebinbijuuu@gmail.com</a></div>
+    <div class="footer-icons mt-2">
+      <a href="https://github.com/ebinbijuuu" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/ebin-biju-a93854344" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="mt-2">© 2025 Ebin Biju</div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
-    // Slide and fade-in on scroll
-    function slideFadeOnScroll() {
-      const elements = [document.getElementById('intro'), document.getElementById('contact')];
-      const triggerBottom = window.innerHeight * 0.85;
+    const observerOptions = {
+      threshold: 0.2
+    };
 
-      elements.forEach(el => {
-        if (!el) return;
-        const boxTop = el.getBoundingClientRect().top;
-        if (boxTop < triggerBottom) {
-          el.classList.add('active');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
         }
       });
-    }
+    }, observerOptions);
 
-    window.addEventListener('scroll', slideFadeOnScroll);
-    window.addEventListener('load', slideFadeOnScroll);
+    document.querySelectorAll('.section').forEach(el => observer.observe(el));
   </script>
 </body>
 
