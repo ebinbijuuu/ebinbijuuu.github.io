@@ -1,127 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Ebin Biju</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0d0d0d;
-      color: white;
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 70px;
     }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #111;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    .navbar {
+      background-color: #1f1f1f;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
+
+    .navbar-brand, .nav-link {
+      color: #ffffff !important;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
+
+    .nav-link.active {
+      font-weight: bold;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
+
     .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
+      max-width: 1000px;
     }
-    .project {
-      background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7));
-      border-radius: 1rem;
-      padding: 2rem;
+
+    .project-card {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
     }
-    .project img {
-      width: 100%;
-      border-radius: 0.5rem;
+
+    .project-card.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-img {
+      height: 200px;
+      background-color: #333;
+      border-radius: 8px;
       margin-bottom: 1rem;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 1.2rem;
     }
-    .project h2 {
-      font-size: 1.75rem;
+
+    .project-title {
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
     }
-    .project p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+
+    .project-summary {
+      color: #ccc;
       margin-bottom: 1rem;
     }
-    .tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+
+    .skills {
       margin-bottom: 1rem;
     }
-    .tag {
-      background: #2d7d2d;
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    .github-button {
+
+    .skill-badge {
       display: inline-block;
-      background: white;
-      color: black;
-      font-weight: bold;
-      padding: 1rem 1.5rem;
-      border-radius: 0.6rem;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background 0.3s;
+      background-color: #2e7d32;
+      color: white;
+      padding: 0.25rem 0.6rem;
+      border-radius: 12px;
+      margin-right: 0.4rem;
+      font-size: 0.85rem;
     }
-    .github-button:hover {
-      background: #e0e0e0;
+
+    .btn-repo {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-repo:hover {
+      background-color: #555;
     }
   </style>
 </head>
+
 <body>
-  <nav>
-    <div style="font-weight: bold; font-size: 1.2rem;">Ebin Biju</div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Ebin Biju</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Projects</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
   <div class="container">
-    <h1>My Projects</h1>
+    <h1 id="projects-title" class="text-center my-5">My Projects</h1>
 
-    <div class="project">
-      <img src="assets/ai-chatbot.png" alt="AI Chatbot Helpdesk">
-      <h2>AI Chatbot Helpdesk</h2>
-      <p>Chatbot assistant for customer service queries using machine learning and AI to improve user support.</p>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">TensorFlow</span>
-        <span class="tag">React</span>
-        <span class="tag">Node.js</span>
+    <!-- AI Chatbot Helpdesk -->
+    <div class="project-card chatbot-card">
+      <div class="project-img" style="background-image: url('assets/ai-chatbot.png');"></div>
+      <div class="project-title">AI Chatbot Helpdesk</div>
+      <div class="project-summary">
+        Chatbot assistant for customer service queries using machine learning and AI to improve user support.
       </div>
-      <a class="github-button" href="https://github.com/ebinbijuuu/ai-chatbot-helpdesk" target="_blank">
-        🚀 View on GitHub
+      <div class="skills">
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">TensorFlow</span>
+        <span class="skill-badge">React</span>
+        <span class="skill-badge">Node.js</span>
+      </div>
+      <a href="https://github.com/ebinbijuuu/ai-chatbot" class="btn-repo" target="_blank">
+        <i class="fab fa-github"></i> View on GitHub
       </a>
     </div>
 
-    <!-- More project cards go here -->
+    <!-- Secure Web App -->
+    <div class="project-card">
+      <div class="project-img" style="background-image: url('assets/secure-web-app.png');"></div>
+      <div class="project-title">Secure Web App</div>
+      <div class="project-summary">
+        JWT Authentication & user management system for modern web apps with secure login/register functionality.
+      </div>
+      <div class="skills">
+        <span class="skill-badge">Flask</span>
+        <span class="skill-badge">SQLite</span>
+        <span class="skill-badge">bcrypt</span>
+        <span class="skill-badge">JWT</span>
+      </div>
+      <a href="https://github.com/ebinbijuuu/secure-web-app" class="btn-repo" target="_blank">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+    </div>
 
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const observerOptions = {
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.project-card, #projects-title').forEach(el => observer.observe(el));
+  </script>
 </body>
+
 </html>
