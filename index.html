@@ -9,59 +9,127 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background-color: #0e0e0e;
-      color: #ffffff;
+      background:
+        radial-gradient(circle at top, rgba(46, 125, 50, 0.12), transparent 30%),
+        linear-gradient(180deg, #0b0b0b 0%, #101010 48%, #0d0d0d 100%);
+      color: #f5f5f5;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       scroll-behavior: smooth;
     }
 
     .navbar {
-      background-color: #1a1a1a;
+      background: rgba(17, 17, 17, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #262626;
     }
 
     .navbar-brand, .nav-link {
       color: #ffffff !important;
     }
 
+    .nav-link.active {
+      color: #86efac !important;
+      font-weight: 600;
+    }
+
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      min-height: 92vh;
+      display: grid;
+      place-items: center;
       text-align: center;
-      padding: 2rem;
+      padding: 4rem 1rem 2rem;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid #2b2b2b;
+      border-radius: 999px;
+      background: rgba(17, 17, 17, 0.86);
+      color: #86efac;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
     }
 
     .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      color: #86efac;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-bottom: 1.5rem;
+      font-size: 1.15rem;
+      color: #c8c8c8;
+      margin: 0 auto 2rem;
+      max-width: 720px;
+    }
+
+    .hero-note {
+      color: #9ca3af;
+      font-size: 0.98rem;
+      margin-top: -0.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
     }
 
     .btn-custom {
-      background-color: #2e7d32;
+      background-color: #232323;
       color: white;
-      margin: 0.3rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      border: none;
+      padding: 0.78rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid #303030;
       text-decoration: none;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-custom:hover {
+      transform: translateY(-1px);
+      color: #ffffff;
+      border-color: #404040;
+      background-color: #2c2c2c;
+    }
+
+    .btn-primary-custom {
+      background: linear-gradient(135deg, #1f7a3f, #166534);
+      border-color: transparent;
+    }
+
+    .btn-primary-custom:hover {
+      background: linear-gradient(135deg, #1d6f39, #14532d);
     }
 
     .section {
       padding: 4rem 1rem;
-      border-top: 1px solid #333;
-      border-bottom: 1px solid #333;
+      border-top: 1px solid #2a2a2a;
+      border-bottom: 1px solid #2a2a2a;
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.6s ease;
+      background: rgba(17, 17, 17, 0.28);
     }
 
     .section.active {
@@ -70,18 +138,109 @@
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 1.9rem;
       margin-bottom: 1.5rem;
       border-bottom: 2px solid #2e7d32;
       display: inline-block;
       padding-bottom: 0.3rem;
     }
 
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .feature-card {
+      background: rgba(23, 23, 23, 0.92);
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 1.25rem;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      color: #86efac;
+    }
+
+    .feature-card p,
+    .feature-card li {
+      color: #d1d1d1;
+    }
+
+    .feature-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .feature-card li + li {
+      margin-top: 0.45rem;
+    }
+
+    .mini-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9ca3af;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-mini {
+      padding: 1rem 1rem 0.95rem;
+      border-radius: 16px;
+      background: rgba(17, 17, 17, 0.72);
+      border: 1px solid #2a2a2a;
+    }
+
+    .project-mini h4 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: #f5f5f5;
+    }
+
+    .project-mini p {
+      margin-bottom: 0;
+      color: #cfcfcf;
+      font-size: 0.95rem;
+    }
+
+    .project-mini a {
+      color: #86efac;
+      text-decoration: none;
+    }
+
+    .project-mini a:hover {
+      text-decoration: underline;
+    }
+
+    .project-mini .skill-pill {
+      display: inline-block;
+      margin-top: 0.75rem;
+      margin-right: 0.45rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid #303030;
+      background: #1f1f1f;
+      color: #d1d5db;
+      font-size: 0.78rem;
+    }
+
     .footer {
       text-align: center;
       padding: 2rem;
       background-color: #111;
-      border-top: 1px solid #333;
+      border-top: 1px solid #2a2a2a;
       color: #aaa;
     }
 
@@ -102,6 +261,18 @@
 
     .footer-icons i:hover {
       color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding-top: 5rem;
+      }
+
+      .feature-grid,
+      .project-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -127,45 +298,85 @@
   </nav>
 
   <section class="hero">
-    <h1>Ebin Biju</h1>
-    <p>An aspiring Software Engineer looking to specialise in Cybersecurity and AI</p>
-    <div>
-    <a href="assets/Ebins-CV.pdf" class="btn-custom" target="_blank">📄 Resume</a>
-    <a href="projects.html" class="btn-custom">💻 Projects</a>
+    <div class="hero-inner">
+      <span class="hero-badge">Software Engineering Intern · Full-Stack Developer</span>
+      <h1>Ebin <span>Biju</span></h1>
+      <p>I build clean, responsive, and secure web applications with a focus on practical user experiences, developer tooling, and projects that solve real problems.</p>
+      <div class="hero-note">Open to software engineering roles and project-based work.</div>
+      <div class="hero-actions">
+        <a href="assets/Ebins-CV.pdf" class="btn-custom btn-primary-custom" target="_blank" rel="noopener noreferrer">📄 Resume</a>
+        <a href="projects.html" class="btn-custom">💻 View Projects</a>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Internship highlights</h3>
+          <ul>
+            <li>Improved test quality with mutation testing in a Gradle repo.</li>
+            <li>Built a reusable GitHub Actions shared workflow for multiple repos.</li>
+            <li>Created an internal page on a webapp using React and TypeScript.</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Featured personal projects</h3>
+          <ul>
+            <li><strong>Studio Portal:</strong> a photography booking and client portal.</li>
+            <li><strong>AI Chatbot Helpdesk:</strong> an AI support assistant project.</li>
+            <li><strong>Secure Web App:</strong> a secure login and user-management app.</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Core stack</h3>
+          <ul>
+            <li>React, TypeScript, JavaScript, Tailwind CSS, HTML</li>
+            <li>Python, Flask, REST APIs, Supabase, SQL, Java</li>
+            <li>Gradle, Cucumber, Spring tests, GitHub Actions</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="summary">
+  <section class="section" id="projects-preview">
     <div class="container">
-      <h2 class="section-title">Profile Summary</h2>
-      <p>Ambitious and analytical Computer Science student with a solid grasp of software development principles. Proficient in Python, Java, HTML/CSS/JS, and currently expanding full-stack skills. Passionate about clean, maintainable code and contributing to real-world projects.</p>
-    </div>
-  </section>
-
-  <section class="section" id="tech-stack">
-    <div class="container">
-      <h2 class="section-title">Technology Stack</h2>
-      <ul>
-        <li><strong>Frontend:</strong> HTML, CSS, JavaScript, Vue.js, Flask</li>
-        <li><strong>Backend:</strong> Python (NLP/spaCy), Java, C/C++, SQL, REST APIs</li>
-        <li><strong>Tools:</strong> VSCode, Git, Docker, MySQL, Cursor, Postman</li>
-      </ul>
+      <h2 class="section-title">Featured projects</h2>
+      <div class="project-row">
+        <article class="project-mini">
+          <span class="mini-label">Most recent</span>
+          <h4><a href="projects.html">Studio Portal</a></h4>
+          <p>Photography studio booking and client management platform with a clean, responsive portal experience.</p>
+          <div>
+            <span class="skill-pill">React 19</span>
+            <span class="skill-pill">TypeScript</span>
+            <span class="skill-pill">Supabase</span>
+          </div>
+        </article>
+        <article class="project-mini">
+          <span class="mini-label">Highlighted work</span>
+          <h4><a href="projects.html">AI Chatbot Helpdesk</a></h4>
+          <p>Customer support chatbot concept focused on useful responses and practical AI application.</p>
+          <div>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">TensorFlow</span>
+            <span class="skill-pill">React</span>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="section" id="education">
     <div class="container">
-      <h2 class="section-title">Education</h2>
-      <ul>
-        <li><strong>Keele University</strong> – BSc Computer Science<br><em>2023–Present | Expected First Class (74%)</em></li>
-        <li><strong>Alcester Grammar School</strong> – A Levels<br><em>Business (A), Biology (B), Chemistry (C)</em></li>
-        <li><em>2x 9s, 3x 8s, 4x 7s at GCSE</em></li>
-      </ul>
+      <h2 class="section-title">Quick note</h2>
+      <p>My work sits at the intersection of full-stack web development, internal engineering tools, and practical problem-solving — with a strong interest in clean UI, automation, testing, and secure systems.</p>
+      <div class="section-links">
+        <a href="projects.html" class="btn-custom">See all projects</a>
+        <a href="mailto:ebijuwork@gmail.com" class="btn-custom">Contact me</a>
+      </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div>Contact: <a href="mailto:ebinbijuuu@gmail.com">ebinbijuuu@gmail.com</a></div>
+    <div>Contact: <a href="mailto:ebijuwork@gmail.com">ebijuwork@gmail.com</a></div>
     <div class="footer-icons mt-2">
       <a href="https://github.com/ebinbijuuu" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/ebin-bijuu" target="_blank"><i class="fab fa-linkedin"></i></a>

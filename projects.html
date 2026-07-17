@@ -9,14 +9,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background-color: #121212;
-      color: #ffffff;
+      background:
+        radial-gradient(circle at top, rgba(46, 125, 50, 0.08), transparent 28%),
+        linear-gradient(180deg, #0b0b0b 0%, #101010 48%, #0f0f0f 100%);
+      color: #f3f4f6;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding-top: 70px;
+      padding-top: 78px;
+      line-height: 1.6;
     }
 
     .navbar {
-      background-color: #1f1f1f;
+      background: rgba(17, 17, 17, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #262626;
     }
 
     .navbar-brand, .nav-link {
@@ -24,21 +29,60 @@
     }
 
     .nav-link.active {
-      font-weight: bold;
+      font-weight: 600;
+      color: #86efac !important;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1080px;
+    }
+
+    .projects-hero {
+      margin: 2rem 0 2.5rem;
+      text-align: center;
+    }
+
+    .projects-kicker {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid #2b2b2b;
+      border-radius: 999px;
+      background: rgba(17, 17, 17, 0.82);
+      color: #86efac;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .projects-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.3rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .projects-hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #c5c5c5;
+      font-size: 1.05rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
     }
 
     .project-card {
-      background-color: #1e1e1e;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      background: #171717;
+      border: 1px solid #262626;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, opacity 0.3s ease;
       opacity: 0;
-      transform: translateY(50px);
+      transform: translateY(24px);
     }
 
     .project-card.active {
@@ -46,58 +90,124 @@
       transform: translateY(0);
     }
 
-    .project-img {
-      height: 200px;
-      background-color: #333;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(134, 239, 172, 0.26);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.36);
+    }
+
+    .project-media {
+      min-height: 250px;
+      background-color: #111111;
       background-size: cover;
       background-position: center;
+      position: relative;
+    }
+
+    .project-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.1) 42%, rgba(17, 17, 17, 0.7) 100%);
+    }
+
+    .project-body {
+      padding: 1.5rem;
+    }
+
+    .project-topline {
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: #999;
-      font-size: 1.2rem;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .project-title {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin: 0;
     }
 
     .project-summary {
-      color: #ccc;
+      color: #d1d5db;
       margin-bottom: 1rem;
+      font-size: 0.98rem;
     }
 
     .skills {
-      margin-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .skill-badge {
       display: inline-block;
-      background-color: #2e7d32;
-      color: white;
-      padding: 0.25rem 0.6rem;
-      border-radius: 12px;
-      margin-right: 0.4rem;
+      background: #202020;
+      color: #e5e7eb;
+      border: 1px solid #303030;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
       font-size: 0.85rem;
+      letter-spacing: 0.01em;
     }
 
-    .btn-repo {
-      background-color: #333;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn-project {
+      border: 1px solid #303030;
+      color: #f9fafb;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-project:hover {
+      transform: translateY(-1px);
+      color: #ffffff;
+    }
+
+    .btn-repo {
+      background: #232323;
     }
 
     .btn-repo:hover {
-      background-color: #555;
+      background: #2c2c2c;
+      border-color: #3b3b3b;
+    }
+
+    .btn-demo {
+      background: #1f2f23;
+      border-color: #2d4b34;
+    }
+
+    .btn-demo:hover {
+      background: #25392b;
+    }
+
+    @media (max-width: 768px) {
+      .project-media {
+        min-height: 210px;
+      }
+
+      .project-body {
+        padding: 1.25rem;
+      }
+
+      .project-topline {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -123,67 +233,121 @@
     </div>
   </nav>
 
-  <div class="container">
-    <h1 id="projects-title" class="text-center my-5">My Projects</h1>
+  <main class="container">
+    <section class="projects-hero">
+      <span class="projects-kicker">Selected work</span>
+      <h1 id="projects-title">My Projects</h1>
+      <p>A curated selection of projects across software, AI, and web development — built with a focus on clean interfaces, useful functionality, and thoughtful design.</p>
+    </section>
+
+    <section class="projects-grid" aria-label="Project gallery">
+
+    <!-- Studio Portal -->
+    <article class="project-card">
+      <div class="project-media" style="background-image: url('assets/studio-portal.jpg');"></div>
+      <div class="project-body">
+        <div class="project-topline">
+          <h2 class="project-title">Studio Portal</h2>
+          <span class="projects-kicker" style="margin: 0; font-size: 0.72rem; padding: 0.28rem 0.65rem;">Featured · New</span>
+        </div>
+        <p class="project-summary">
+          A photography studio booking and client management platform. Studio Portal is a modern client-facing platform for a photography business that lets clients submit event enquiries, sign in to a private portal, and track bookings in a clean, responsive interface. Built as a reusable template for photography studios, with Supabase powering authentication and backend data.
+        </p>
+        <div class="skills">
+          <span class="skill-badge">React 19</span>
+          <span class="skill-badge">TypeScript</span>
+          <span class="skill-badge">Vite 7</span>
+          <span class="skill-badge">Supabase</span>
+          <span class="skill-badge">CSS</span>
+          <span class="skill-badge">pnpm</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ebinbijuuu/studio-portal" class="btn-project btn-repo" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+          <a href="https://studio-portal-pi-sage.vercel.app" class="btn-project btn-demo" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-arrow-up-right-from-square"></i> Live Demo
+          </a>
+        </div>
+      </div>
+    </article>
 
     <!-- AI Chatbot Helpdesk -->
-    <div class="project-card chatbot-card">
-      <div class="project-img" style="background-image: url('assets/ai-chatbot.png');"></div>
-      <div class="project-title">AI Chatbot Helpdesk</div>
-      <div class="project-summary">
-        Chatbot assistant for customer service queries using machine learning and AI to improve user support.
+    <article class="project-card chatbot-card">
+      <div class="project-media" style="background-image: url('assets/ai-chatbot.png');"></div>
+      <div class="project-body">
+        <div class="project-topline">
+          <h2 class="project-title">AI Chatbot Helpdesk</h2>
+        </div>
+        <p class="project-summary">
+          Chatbot assistant for customer service queries using machine learning and AI to improve user support.
+        </p>
+        <div class="skills">
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">TensorFlow</span>
+          <span class="skill-badge">React</span>
+          <span class="skill-badge">Node.js</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ebinbijuuu/ai-chatbot" class="btn-project btn-repo" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
       </div>
-      <div class="skills">
-        <span class="skill-badge">Python</span>
-        <span class="skill-badge">TensorFlow</span>
-        <span class="skill-badge">React</span>
-        <span class="skill-badge">Node.js</span>
-      </div>
-      <a href="https://github.com/ebinbijuuu/ai-chatbot" class="btn-repo" target="_blank">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
+    </article>
 
     <!-- Secure Web App -->
-    <div class="project-card">
-      <div class="project-img" style="background-image: url('assets/secure-web-app.png');"></div>
-      <div class="project-title">Secure Web App</div>
-      <div class="project-summary">
-        JWT Authentication & user management system for modern web apps with secure login/register functionality.
+    <article class="project-card">
+      <div class="project-media" style="background-image: url('assets/secure-web-app.png');"></div>
+      <div class="project-body">
+        <div class="project-topline">
+          <h2 class="project-title">Secure Web App</h2>
+        </div>
+        <p class="project-summary">
+          JWT authentication and user management system for modern web apps with secure login and registration functionality.
+        </p>
+        <div class="skills">
+          <span class="skill-badge">Flask</span>
+          <span class="skill-badge">SQLite</span>
+          <span class="skill-badge">bcrypt</span>
+          <span class="skill-badge">JWT</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ebinbijuuu/secure-web-app" class="btn-project btn-repo" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
       </div>
-      <div class="skills">
-        <span class="skill-badge">Flask</span>
-        <span class="skill-badge">SQLite</span>
-        <span class="skill-badge">bcrypt</span>
-        <span class="skill-badge">JWT</span>
-      </div>
-      <a href="https://github.com/ebinbijuuu/secure-web-app" class="btn-repo" target="_blank">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
+    </article>
 
     <!-- Lloyds Mortgage Calculator -->
-<div class="project-card">
-  <div class="project-img" style="background-image: url('assets/mortgage-calculator.png');"></div>
-  <div class="project-title">Lloyds Mortgage Calculator</div>
-  <div class="project-summary">
-    Developed during the <strong>Lloyds Banking Group Job Simulation on Forage</strong>.  
-    Built an interactive mortgage calculator web app using React and Tailwind CSS, applying responsive design principles to ensure accessibility across devices. Implemented dynamic state management in React to handle real-time financial calculations and integrated data visualization with Recharts for clear user insights. Customized Tailwind’s configuration to align with Lloyds Banking Group’s brand identity, showcasing both technical skills in frontend development and an understanding of UI/UX design consistency. Deployed the tool using modern build tooling (Vite, npm) and optimized for performance and maintainability.
-  </div>
-  <div class="skills">
-    <span class="skill-badge">React</span>
-    <span class="skill-badge">Tailwind CSS</span>
-    <span class="skill-badge">Recharts</span>
-    <span class="skill-badge">Vite</span>
-    <span class="skill-badge">JavaScript</span>
-  </div>
-  <a href="https://github.com/ebinbijuuu/mortgage-calculator" class="btn-repo" target="_blank">
-    <i class="fab fa-github"></i> View on GitHub
-  </a>
-</div>
+    <article class="project-card">
+      <div class="project-media" style="background-image: url('assets/mortgage-calculator.png');"></div>
+      <div class="project-body">
+        <div class="project-topline">
+          <h2 class="project-title">Lloyds Mortgage Calculator</h2>
+        </div>
+        <p class="project-summary">
+          Developed during the <strong>Lloyds Banking Group Job Simulation on Forage</strong>. Built an interactive mortgage calculator web app using React and Tailwind CSS, applying responsive design principles to ensure accessibility across devices.
+        </p>
+        <div class="skills">
+          <span class="skill-badge">React</span>
+          <span class="skill-badge">Tailwind CSS</span>
+          <span class="skill-badge">Recharts</span>
+          <span class="skill-badge">Vite</span>
+          <span class="skill-badge">JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ebinbijuuu/mortgage-calculator" class="btn-project btn-repo" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+    </article>
 
+    </section>
 
-  </div>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
